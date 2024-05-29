@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messaging Board</title>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <form action="/sign-up" method="post">  <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
+    
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" minlength="8" required><br><br>
+    
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8"><br><br>
+    
+    <button type="submit">Sign Up</button>
+  </form>
+</body>
+</html>
