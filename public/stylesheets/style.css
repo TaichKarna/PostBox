@@ -122,8 +122,12 @@ button{
 button a{
   color: inherit;
   text-decoration: none;
+  width: 100%;
 }
 
+a button{
+  width: 100%;
+}
 
 .chatbox{
   position: fixed;
@@ -292,4 +296,9 @@ input:focus-within{
 
 .user-text{
   color: var(--text);
+}
+
+.header a{
+  color: inherit;
+  text-decoration: none;
 }

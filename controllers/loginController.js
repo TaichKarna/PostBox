@@ -3,7 +3,8 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs')
 
 exports.login_get = asyncHandler( async(req, res, next) => {
-    res.render('login', {errors: []});
+  const authenticated = req.isAuthenticated();
+    res.render('login', {errors: [], authenticated: authenticated });
 })
 
 exports.login_post = [

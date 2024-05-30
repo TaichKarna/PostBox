@@ -10,11 +10,16 @@
   <body>
     <nav class="main-nav">
         <div class="logo">
-          <h1>Post<span class="blue">Box</span></h1>
+          <h1 class="header"><a href="/">Post<span class="blue">Box</span></a></h1>
         </div>
         <div class="nav-buttons">
-          <button class="login"><a href="/login">Login</a></button>
-          <button class="sign-up"><a href="sign-up">Sign-up</a></button>
+          <% if(authenticated){%>
+            <button class="login"><a href="/log-out">Logout</a></button>
+            <% }%>
+            <% if(!authenticated){%>
+              <button class="login"><a href="/login">Login</a></button>
+              <% }%>
+          <button class="sign-up"><a href="/sign-up">Sign-up</a></button>
         </div>
     </nav>
     <% if(!authenticated){%>
@@ -22,8 +27,8 @@
         <div class="box purple"></div>
         <div class="info">
           <h1 class="sign-text">You must be logged in to view posts</h1>
-          <button class="login"><a href="/login">Login</a></button>
-          <button class="sign-up"><a href="sign-up">Sign-up</a></button>
+          <a href="/login"><button class="login">Login</button></a>
+          <a href="/sign-up"><button class="sign-up">Sign-up</button></a>
         </div>
       <% }%>
       <% if(authenticated){%>

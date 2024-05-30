@@ -4,8 +4,9 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs')
 // Display list of all Authors.
 exports.signup_get = asyncHandler(async (req, res, next) => {
+  const authenticated = req.isAuthenticated();
   const errors = [];
-  res.render('sign-up',{errors: errors});
+  res.render('sign-up',{errors: errors,authenticated: authenticated});
 });
 
 

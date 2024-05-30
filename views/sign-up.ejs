@@ -10,12 +10,17 @@
   <body>
     <nav class="main-nav">
         <div class="logo">
-          <h1>Post<span class="blue">Box</span></h1>
+          <h1 class="header"><a href="/">Post<span class="blue">Box</span></a></h1>
         </div>
         <div class="nav-buttons">
-          <button class="login"><a href="/login">Login</a></button>
-          <button class="sign-up"><a href="sign-up">Sign-up</a></button>
-        </div>
+        <% if(authenticated){%>
+          <button class="login"><a href="/log-out">Logout</a></button>
+          <% }%>
+          <% if(!authenticated){%>
+            <button class="login"><a href="/login">Login</a></button>
+            <% }%>
+        <button class="sign-up"><a href="/sign-up">Sign-up</a></button>
+      </div>
         </nav>
    <div class="main-form">
     <h1 class="form-header">Sign Up</h1>
