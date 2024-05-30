@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>PostBox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/index.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <nav class="main-nav">
+        <div class="logo">
+          <h1>Post<span class="blue">Box</span></h1>
+        </div>
+        <div class="nav-buttons">
+          <button class="login">Login</button>
+          <button class="sign-up">Sign-up</button>
+        </div>
+    </nav>
+    <div class="info-board">
+      <div class="box purple"></div>
+      <div class="info">
+        <h1 class="sign-text">You must be logged in to view posts</h1>
+        <button class="login">Login</button>
+        <button class="sign-up">Sign-up</button>
+      </div>
+    <div class="chatbox">
+      <form action="" class="message">
+        <input type="text" class="users-message" placeholder="message">
+        <button class="send-message" type="submit">Post</button>
+      </form>
+    </div>
   </body>
 </html>

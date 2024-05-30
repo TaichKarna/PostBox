@@ -1,8 +1,203 @@
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
 
-a {
-  color: #00B7FF;
+
+/* main */
+
+:root {
+  --background: #282828;
+  --text: #e3e3e3;
+  --text2: #ffffff;
+  --text3: #848484;
+  --border: #434343;
+  --primary: #ff2870;
+
+  --shadow: rgba(0, 0, 0, 0.204);
+
+  --admin: #1e96c9;
+  --superuser: #82c91e;
+  --user: #ff2870;
+}
+
+
+.blue{
+  color: var(--primary)
+}
+
+.logo{
+  font-size: 25px;
+}
+
+body {
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.main-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px var(--border);
+  padding: 5px 20px;
+  z-index: 999;
+  position: sticky;
+}
+
+@media (min-width: 800px){
+  .main-nav{
+    padding: 10px 40px;
+  }
+}
+
+button{
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+.sign-up{
+  background-color: var(--background);
+  border: 1px solid var(--primary);
+}
+
+.nav-buttons{
+  display: flex;
+  gap: 10px;
+}
+
+.chatbox{
+  position: fixed;
+  bottom: 5px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 90vw;
+  margin-inline: min(40px,5vw);
+  padding : 10px ;
+  display: flex;
+  box-shadow: 0px 0px 10px 0px var(--shadow);
+}
+
+.message{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width:800px){
+  .message{
+    gap: 2%;
+  }
+}
+
+.users-message{
+  background-color: var(--background);
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  width: calc(100% - 5%);
+}
+
+.users-message:hover, .users-message:focus-within{
+  border: 2px solid var(--primary);
+  outline: none;
+  color: var(--text2);
+}
+
+.info-board{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-inline: 10px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 4px;
+  display: inline-block;
+  border-radius: 100vw;
+  background-color: var(--primary);
+  animation: bounce 0.5s; 
+  animation-direction: alternate; 
+  animation-timing-function: cubic-bezier(.5, 0.05, 1, .5); 
+  animation-iteration-count: infinite; 
+  
+}
+
+
+@keyframes bounce { 
+  from { 
+      transform: translate3d(0, 0, 0); 
+  } 
+  to { 
+      transform: translate3d(0, 100px, 0); 
+  } 
+} 
+/* Prefix Support */ 
+
+.info{
+  margin-top: 150px;
 }

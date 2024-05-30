@@ -24,5 +24,10 @@
     
     <button type="submit">Sign Up</button>
   </form>
+  <ul>
+    <% errors.forEach((error) => { %>
+      <p><%= error.msg %></p>
+    <% }); %>
+  </ul>
 </body>
 </html>

@@ -3,10 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var passport = require('passport');
 var app = express();
 
 
@@ -30,6 +31,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//authtentication with passport
+require('./passport')
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(passport.session());
+
+
+app.use((req, res, next) => {
+  console.log(req.session);
+  console.log(req.user)
+  res.locals.currentUser = req.user;
+  next();
+});
+
+
+//routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
