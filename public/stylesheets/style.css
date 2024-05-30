@@ -111,12 +111,19 @@ button{
 .sign-up{
   background-color: var(--background);
   border: 1px solid var(--primary);
+  color: var(--primary)
 }
 
 .nav-buttons{
   display: flex;
   gap: 10px;
 }
+
+button a{
+  color: inherit;
+  text-decoration: none;
+}
+
 
 .chatbox{
   position: fixed;
@@ -200,4 +207,89 @@ button{
 
 .info{
   margin-top: 150px;
+}
+
+.main-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  width: max(50%,350px);
+  margin-inline: auto;
+  margin-top: 20px;
+}
+
+.form-secondary{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  gap:10px;
+  align-items: center;
+}
+ 
+input{
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+  outline: none;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  color: white;
+}
+
+input:focus-within{
+  border: 2px solid var(--primary);
+}
+
+.errors{
+  font-size: 14px;
+}
+
+.form-header{
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.form-submit-button{
+  width: 90%;
+}
+
+.mainbox{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-inline: auto;
+  padding: 0;
+}
+
+.message-box{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+  outline: none;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  color: white;
+  border: 1px solid var(--border);
+  gap: 5px;
+  margin-inline: auto;
+}
+
+.username{
+  color: var(--user);
+  font-size: 12px;
+
+}
+
+.user-text{
+  color: var(--text);
 }

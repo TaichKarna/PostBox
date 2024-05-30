@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Messaging Board</title>
-</head>
-<body>
-  <h1>Sign Up</h1>
-  <form action="/sign-up" method="post">  <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required><br><br>
-    
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required><br><br>
-    
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" minlength="8" required><br><br>
-    
-    <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8"><br><br>
-    
-    <button type="submit">Sign Up</button>
-  </form>
-  <ul>
-    <% errors.forEach((error) => { %>
-      <p><%= error.msg %></p>
-    <% }); %>
-  </ul>
-</body>
+<html>
+  <head>
+    <title>PostBox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/index.js"></script>
+  </head>
+  <body>
+    <nav class="main-nav">
+        <div class="logo">
+          <h1>Post<span class="blue">Box</span></h1>
+        </div>
+        <div class="nav-buttons">
+          <button class="login">Login</button>
+          <button class="sign-up">Sign-up</button>
+        </div>
+        </nav>
+   <div class="main-form">
+    <h1 class="form-header">Sign Up</h1>
+    <form action="/sign-up" method="post" class="form-secondary">  
+      <input type="text" id="firstName" name="firstName" required placeholder="Enter First Name">     
+      <input type="text" id="lastName" name="lastName" required placeholder="Enter Last Name">
+      <input type="text" id="username" name="username" required placeholder="Enter User Name" >
+      <input type="password" id="password" name="password" minlength="8" required placeholder="Enter Password">
+      <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8" placeholder="Enter Password again">
+      <button type="submit" class="form-submit-button">Sign Up</button>
+    </form>
+    <ul>
+      <% errors.forEach((error) => { %>
+        <p class="errors"><%= error.msg %></p>
+      <% }); %>
+    </ul>
+   </div>
+    </div>
+  </body>
 </html>

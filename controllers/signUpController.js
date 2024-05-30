@@ -15,7 +15,7 @@ exports.signup_post =  [
     body("lastName", "Last Name must not be empty").trim().isLength({ min: 1 }).escape(),
     body("username", "user name must atleast have 3 characters").trim().isLength({ min: 3 }).escape(),
     body("password", "password must not be empty").trim().isLength({ min: 1 }).escape(),
-    body('confirmedPassword',"passwords must match").custom((value, { req }) => {
+    body('confirmPassword',"passwords must match").custom((value, { req }) => {
       return value === req.body.password;
     }),
   
@@ -31,7 +31,6 @@ exports.signup_post =  [
             user_name: req.body.username,
             password: hashedPassword,
         })
-         console.log(errors)
       if (!errors.isEmpty()) {
         // There are errors.
         res.render('sign-up',{errors: errors.errors})

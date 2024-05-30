@@ -9,12 +9,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var passport = require('passport');
 var app = express();
+require('dotenv').config()
 
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://taichi:28012003@cluster0.ignfpnx.mongodb.net/messaging_board?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URL;
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -37,13 +38,6 @@ require('./passport')
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.session());
 
-
-app.use((req, res, next) => {
-  console.log(req.session);
-  console.log(req.user)
-  res.locals.currentUser = req.user;
-  next();
-});
 
 
 //routes

@@ -17,16 +17,28 @@
           <button class="sign-up">Sign-up</button>
         </div>
     </nav>
-    <div class="info-board">
-      <div class="box purple"></div>
-      <div class="info">
-        <h1 class="sign-text">You must be logged in to view posts</h1>
-        <button class="login">Login</button>
-        <button class="sign-up">Sign-up</button>
-      </div>
+    <% if(!authenticated){%>
+      <div class="info-board">
+        <div class="box purple"></div>
+        <div class="info">
+          <h1 class="sign-text">You must be logged in to view posts</h1>
+          <button class="login"><a href="/login">Login</a></button>
+          <button class="sign-up"><a href="sign-up">Sign-up</a></button>
+        </div>
+      <% }%>
+      <% if(authenticated){%>
+        <ul class="mainbox">
+          <% messages.forEach((message) => { %>
+            <div class="message-box">
+              <p class="username"><%= message.user_name.user_name %></p>
+              <p class="user-text"><%= message.text %></p></p>
+            </div>
+          <% }); %>
+        </ul>
+        <% }%>
     <div class="chatbox">
-      <form action="" class="message">
-        <input type="text" class="users-message" placeholder="message">
+      <form action="" class="message" method="post">
+        <input type="text" class="users-message" placeholder="message" name="message">
         <button class="send-message" type="submit">Post</button>
       </form>
     </div>
